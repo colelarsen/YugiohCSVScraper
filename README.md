@@ -1,5 +1,6 @@
-## YugiohCSVScraper lets you download card jpg to a specified folder. This program works well with TTS-Deck Editor to move cards into Tabletop Simulator
+## YugiohCSVScraper lets you download card jpg to a specified folder. This program works well with TTS-Deck Editor to move cards into Tabletop Simulator.
 https://www.nexusmods.com/tabletopsimulator/mods/266?tab=files
+http://berserk-games.com/knowledgebase/custom-decks/
 ## Required: Node.js as well as a few modules you may need to download.
 ```
 request 
