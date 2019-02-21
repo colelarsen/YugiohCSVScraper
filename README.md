@@ -40,9 +40,11 @@ Enter 'display' to show locations
 Enter 'q' or 'quit' or 'exit' to exit the program
 Enter 'h' or 'help' for help while in the program
 ```
-DO NOT type double `\` when  seting folder locations from the program
-You will need to create a folder before downloading to said folder
-Make sure to end all filepaths with a `\` Example: `C:\Users\colea\Downloads\Yugioh\CSV\`
+- DO NOT type double `\` when  seting folder locations from the program
+- You will need to create a folder before downloading to said folder
+- Make sure to end all filepaths with a `\` Example: `C:\Users\colea\Downloads\Yugioh\CSV\`
+- The program will ask you for the csv file name, provide just the file name without the .csv
+- The program will ask you for the folder name. It will look in the provided folder location for a folder with the name you enter, it will save the jpgs to the folder name you provide.
 
 ### Notes on Command Prompt
 1.  Command Prompt uses ``cd folderName`` to move into a folder and ``cd ..`` to move out of a folder. 
