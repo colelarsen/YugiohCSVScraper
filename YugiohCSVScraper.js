@@ -27,6 +27,7 @@ if(config.csvLocation == "")
 {
     config.csvLocation = localStorage.getItem("csvLoc");
 }
+console.log("Welcome to YugiohCSVScraper, Type 'help' for help. Thank you!")
 main();
 
 //Handles User Input
@@ -72,12 +73,20 @@ function main()
         //displays all commands
         else if(input == "help" || input == 'h')
         {
-            console.log("This program takes a folder location and csv location to download card jpgs to the folder.");
-            console.log("Enter 'download' to start download proccess");
-            console.log("Enter 'set folder' to set the folder location");
-            console.log("Enter 'set csv' to set the csv location");
-            console.log("Enter 'display' to show locations");
-            console.log("You can also change the folder location and csv location by going to config.js")
+            console.log("Enter \'download\' to start download proccess\n" +
+            "Enter 'set folder' to set the folder location\n" +
+            "Enter 'set csv' to set the csv location\n" +
+            "Enter 'display' to show locations\n" +
+            "Enter 'q' or 'quit' or 'exit' to exit the program\n" +
+            "Enter 'h' or 'help' for help while in the program\n" +
+            
+            "- DO NOT type double '\\' when  seting folder locations from the program\n" +
+            "- You will need to create a folder before downloading to said folder\n" +
+            "- Make sure to end all filepaths with a '\\' Example: 'C:\\Users\\colea\\Downloads\\Yugioh\\CSV\\'\n" +
+            "- The program will ask you for the csv file name, provide just the file name without the .csv\n" +
+            "- The program will ask you for the folder name. It will look in the provided folder location for a folder with the name you enter, it will save the jpgs to the folder name you provide.\n" +
+            "- If a card downloads with a weird image it means the name was spelled wrong.");
+            console.log("\n\nCSV FORMAT: Obtain a .csv file. This is easily done by using Google Sheets and exporting to a .csv file. Make sure to type card names in different boxes horizontally. If you want multiple copies of a card end the card name with ` x2` or ` x3` MAKE SURE TO INCLUDE A SPACE BEFORE THE `xn`.")
             main();
         }
         //displays csv location and folder location
@@ -112,11 +121,19 @@ function readCSV(inputPath, filename)
             parse(fileData, {columns: false, trim: true}, function(err, rows) {
                 //Combine Rows
                 var i;
-                for(i = 1; i < rows.length; i++)
+                var csvData = [];
+                for(i = 0; i < rows.length; i++)
                 {
-                    rows[0].concat(rows[i]);
+                    var j = 0;
+                    for(j = 0; j < rows[i].length; j++)
+                    {
+                        if(rows[i][j] != '')
+                        {
+                            csvData.push(rows[i][j]);
+                        }
+                    }
                 }
-                csvData = rows[0];
+                console.log(csvData);
                 try
                 {
                     prompt('Input folder name:', function (folderName) {
