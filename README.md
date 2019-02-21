@@ -25,15 +25,14 @@ Enter 'q' or 'quit' or 'exit' to exit the program
 3.  Extract YugiohCSVScraper
 4.  Open Command Prompt
 5.  Navigate to YugiohCSVScraper folder location 
-    (Command Prompt uses 'cd folderName' to move into a folder and 'cd ..' to move out of a folder. Press 'Tab' to autocomplete     
+    (Command Prompt uses ``cd folderName`` to move into a folder and ``cd ..`` to move out of a folder. Press 'Tab' to autocomplete     
     folderNames)
 
 6.  Copy and paste this line of code 
 >npm install request fs https csv-parse cheerio node-localstorage
 
-7.  (Optional) Open the config.js file with notepad and enter filepaths to csvLocation and folderLocation. Make sure to enter the file locations with double '\\' and end with '\\'
-Example:
-```C:\\Users\\colea\\Downloads\\Yugioh\\CSV\\```
+7.  (Optional) Open the config.js file with notepad and enter filepaths to csvLocation and folderLocation. Make sure to enter the file locations with double `\\` and end with `\\`
+Example: ``C:\\Users\\colea\\Downloads\\Yugioh\\CSV\\``
 
 ### Running
 1.  Open Command Prompt
