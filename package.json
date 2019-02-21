@@ -1,0 +1,27 @@
+{
+  "name": "yugioh",
+  "version": "1.0.0",
+  "description": "-   https://www.nexusmods.com/tabletopsimulator/mods/266?tab=files\r -   http://berserk-games.com/knowledgebase/custom-decks/\r -   Note: This README is formatted if opened in a browser https://github.com/colelarsen/YugiohCSVScraper/edit/master/README.md\r ## Required: Node.js as well as a few modules you may need to download.\r ```\r request \r fs \r https \r csv-parse \r cheerio \r node-localstorage\r ```",
+  "main": "YugiohCSVScraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colelarsen/YugiohCSVScraper.git"
+  },
+  "author": "Cole Larsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/colelarsen/YugiohCSVScraper/issues"
+  },
+  "homepage": "https://github.com/colelarsen/YugiohCSVScraper#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "csv-parse": "^4.3.3",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
+    "node-localstorage": "^1.3.1",
+    "request": "^2.88.0"
+  }
+}
