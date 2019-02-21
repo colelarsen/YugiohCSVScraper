@@ -1,7 +1,7 @@
 ## YugiohCSVScraper lets you download card jpg to a specified folder. This program works well with TTS-Deck Editor to move cards into Tabletop Simulator.
 -   https://www.nexusmods.com/tabletopsimulator/mods/266?tab=files
 -   http://berserk-games.com/knowledgebase/custom-decks/
--   Note: This is formatted if opened in a browser https://github.com/colelarsen/YugiohCSVScraper/edit/master/README.md
+-   Note: This README is formatted if opened in a browser https://github.com/colelarsen/YugiohCSVScraper/edit/master/README.md
 ## Required: Node.js as well as a few modules you may need to download.
 ```
 request 
@@ -36,9 +36,10 @@ Example: ``C:\\Users\\colea\\Downloads\\Yugioh\\CSV\\``
 4.  Type `node YugiohCSVScraper.js` (Again press 'Tab' to autocomplete)
 
 
-#### Once running there are 6 commands
+#### Once running there are 7 commands
 ```
 Enter 'download' to start download proccess
+Enter 'download type' to download via typing instead of csv
 Enter 'set folder' to set the folder location
 Enter 'set csv' to set the csv location
 Enter 'display' to show locations
@@ -51,6 +52,13 @@ Enter 'h' or 'help' for help while in the program
 - The program will ask you for the csv file name, provide just the file name without the .csv
 - The program will ask you for the folder name. It will look in the provided folder location for a folder with the name you enter, it will save the jpgs to the folder name you provide.
 - If a card downloads with a weird image it means the name was spelled wrong.
+##### Download Type has 4 commands
+```
+Enter 'display' to display current cards
+Enter 'help' or 'h' to display commands
+Enter 'done' to continue on the download process
+Enter 'cancel' to cancel typing card names
+```
 
 ### Notes on Command Prompt
 1.  Command Prompt uses ``cd folderName`` to move into a folder and ``cd ..`` to move out of a folder. 
