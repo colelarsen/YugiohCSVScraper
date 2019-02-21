@@ -21,8 +21,8 @@ node-localstorage
     (Command Prompt uses ``cd folderName`` to move into a folder and ``cd ..`` to move out of a folder. Press 'Tab' to autocomplete     
     folderNames)
 
-6.  Copy and paste this line of code 
->npm install request fs https csv-parse cheerio node-localstorage
+6.  Copy and paste this line of code (Right click to paste into command prompt)
+>npm install
 
 7.  (Optional) Open the config.js file with notepad and enter filepaths to csvLocation and folderLocation. Make sure to enter the file locations with double `\\` and end with `\\`
 Example: ``C:\\Users\\colea\\Downloads\\Yugioh\\CSV\\``
