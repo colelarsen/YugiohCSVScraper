@@ -31,13 +31,14 @@ Example: ``C:\\Users\\colea\\Downloads\\Yugioh\\CSV\\``
 3.  Type node YugiohCSVScraper.js (Again press 'Tab' to autocomplete)
 
 
-#### Once running there are 5 commands
+#### Once running there are 6 commands
 ```
 Enter 'download' to start download proccess
 Enter 'set folder' to set the folder location
 Enter 'set csv' to set the csv location
 Enter 'display' to show locations
 Enter 'q' or 'quit' or 'exit' to exit the program
+Enter 'h' or 'help' for help while in the program
 ```
 DO NOT type double `\` when  seting folder locations from the program
 You will need to create a folder before downloading to said folder
