@@ -30,3 +30,7 @@ Enter 'q' or 'quit' or 'exit' to exit the program
 
 6.  Copy and paste this line of code 
 >npm install request fs https csv-parse cheerio node-localstorage
+
+7.  (Optional) Open the config.js file with notepad and enter filepaths to csvLocation and folderLocation. Make sure to enter the file locations with double '\\' and end with '\\'
+Example:
+>C:\\Users\\colea\\Downloads\\Yugioh\\CSV\\
