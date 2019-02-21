@@ -10,15 +10,6 @@ cheerio
 node-localstorage
 ```
 
-### Once running there are 5 commands
-```
-Enter 'download' to start download proccess
-Enter 'set folder' to set the folder location
-Enter 'set csv' to set the csv location
-Enter 'display' to show locations
-Enter 'q' or 'quit' or 'exit' to exit the program
-```
-
 ### Setup
 1.  Download Node.js from https://nodejs.org/en/
 2.  Download YugiohCSVScraper as a zip
@@ -38,3 +29,21 @@ Example: ``C:\\Users\\colea\\Downloads\\Yugioh\\CSV\\``
 1.  Open Command Prompt
 2.  Navigate to YugiohCSVScraper folder location 
 3.  Type node YugiohCSVScraper.js (Again press 'Tab' to autocomplete)
+
+
+#### Once running there are 5 commands
+```
+Enter 'download' to start download proccess
+Enter 'set folder' to set the folder location
+Enter 'set csv' to set the csv location
+Enter 'display' to show locations
+Enter 'q' or 'quit' or 'exit' to exit the program
+```
+DO NOT type double `\` when  seting folder locations from the program
+
+### Notes on Command Prompt
+1.  Command Prompt uses ``cd folderName`` to move into a folder and ``cd ..`` to move out of a folder. 
+2.  Press 'Tab' to autocomplete folderNames
+3.  Right click to 'Paste'
+4.  'Ctrl+C' will kill an unresponsive program
+5.  Can press 'Ctrl+C' to copy
