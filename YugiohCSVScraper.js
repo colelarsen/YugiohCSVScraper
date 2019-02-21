@@ -138,7 +138,7 @@ function typeCardNames()
         else if(input == "help" || input == "h")
         {
             console.log("Enter 'display' to display current cards")
-            console.log("Enter 'help' or 'h' to display current cards")
+            console.log("Enter 'help' or 'h' to display commands")
             console.log("Enter 'done' to continue on the download process")
             console.log("Enter 'cancel' to cancel typing card names")
             typeCardNames();
