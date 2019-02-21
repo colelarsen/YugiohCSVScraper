@@ -30,7 +30,7 @@ Example: ``C:\\Users\\colea\\Downloads\\Yugioh\\CSV\\``
 1.  Obtain a .csv file. This is easily done by using Google Sheets and exporting to a .csv file. Make sure to type card names in different boxes horizontally. If you want multiple copies of a card end the card name with ` x2` or ` x3` **MAKE SURE TO INCLUDE A SPACE BEFORE THE `xn`.**
 2.  Open Command Prompt
 3.  Navigate to YugiohCSVScraper folder location 
-4.  Type node YugiohCSVScraper.js (Again press 'Tab' to autocomplete)
+4.  Type `node YugiohCSVScraper.js` (Again press 'Tab' to autocomplete)
 
 
 #### Once running there are 6 commands
