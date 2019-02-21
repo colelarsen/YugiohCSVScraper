@@ -26,7 +26,7 @@ node-localstorage
 
 7.  (Optional) Open the config.js file with notepad and enter filepaths to csvLocation and folderLocation. Make sure to enter the file locations with double `\\` and end with `\\`
 Example: ``C:\\Users\\colea\\Downloads\\Yugioh\\CSV\\``
-8.  The program will not work properly if you do not set the csvLocation and the foldeLocation either through the config file or the program commands
+8.  The program will not work if you do not set the csvLocation and the foldeLocation either through the config file or the program commands
 
 ### Running
 
