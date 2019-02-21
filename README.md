@@ -58,6 +58,7 @@ Enter 'display' to display current cards
 Enter 'help' or 'h' to display commands
 Enter 'done' to continue on the download process
 Enter 'cancel' to cancel typing card names
+Enter 'remove x' to remove the card at x
 ```
 
 ### Notes on Command Prompt
