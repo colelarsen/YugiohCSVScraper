@@ -1,4 +1,4 @@
-## YugiohCSVScraper takes a folder location and csv location to download card jpgs to the folder  
+## YugiohCSVScraper lets you download card jpg to a specified folder. This program works well with TTS-Deck Editor to move cards into Tabletop Simulator
 
 ## Required: Node.js as well as a few modules you may need to download.
 ```
