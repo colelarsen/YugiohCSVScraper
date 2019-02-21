@@ -1,6 +1,7 @@
 ## YugiohCSVScraper lets you download card jpg to a specified folder. This program works well with TTS-Deck Editor to move cards into Tabletop Simulator.
-https://www.nexusmods.com/tabletopsimulator/mods/266?tab=files
-http://berserk-games.com/knowledgebase/custom-decks/
+-   https://www.nexusmods.com/tabletopsimulator/mods/266?tab=files
+-   http://berserk-games.com/knowledgebase/custom-decks/
+-   Note: This is formatted if opened in a browser https://github.com/colelarsen/YugiohCSVScraper/edit/master/README.md
 ## Required: Node.js as well as a few modules you may need to download.
 ```
 request 
@@ -25,6 +26,7 @@ node-localstorage
 
 7.  (Optional) Open the config.js file with notepad and enter filepaths to csvLocation and folderLocation. Make sure to enter the file locations with double `\\` and end with `\\`
 Example: ``C:\\Users\\colea\\Downloads\\Yugioh\\CSV\\``
+8.  The program will not work if you do not set the csvLocation and the foldeLocation either through the config file or the program commands
 
 ### Running
 
