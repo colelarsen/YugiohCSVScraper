@@ -26,9 +26,11 @@ node-localstorage
 Example: ``C:\\Users\\colea\\Downloads\\Yugioh\\CSV\\``
 
 ### Running
-1.  Open Command Prompt
-2.  Navigate to YugiohCSVScraper folder location 
-3.  Type node YugiohCSVScraper.js (Again press 'Tab' to autocomplete)
+
+1.  Obtain a .csv file. This is easily done by using Google Sheets and exporting to a .csv file. Make sure to type card names in different boxes horizontally. If you want multiple copies of a card end the card name with ` x2` or ` x3` **MAKE SURE TO INCLUDE A SPACE BEFORE THE `xn`.**
+2.  Open Command Prompt
+3.  Navigate to YugiohCSVScraper folder location 
+4.  Type node YugiohCSVScraper.js (Again press 'Tab' to autocomplete)
 
 
 #### Once running there are 6 commands
@@ -45,6 +47,7 @@ Enter 'h' or 'help' for help while in the program
 - Make sure to end all filepaths with a `\` Example: `C:\Users\colea\Downloads\Yugioh\CSV\`
 - The program will ask you for the csv file name, provide just the file name without the .csv
 - The program will ask you for the folder name. It will look in the provided folder location for a folder with the name you enter, it will save the jpgs to the folder name you provide.
+- If a card downloads with a weird image it means the name was spelled wrong.
 
 ### Notes on Command Prompt
 1.  Command Prompt uses ``cd folderName`` to move into a folder and ``cd ..`` to move out of a folder. 
