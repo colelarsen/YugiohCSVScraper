@@ -141,7 +141,7 @@ var cardNames = [];
 function typeCardNames()
 {
     prompt(': ', function (input) {
-        if(input == "done")
+        if(input == "done" || input == "finished")
         {
             if(cardNames.length == 0)
             {
@@ -157,10 +157,11 @@ function typeCardNames()
         }
         else if(input == "help" || input == "h")
         {
-            console.log("Enter 'display' to display current cards");
+            console.log("Enter 'display' or 'finished' to display current cards");
             console.log("Enter 'help' or 'h' to display commands");
             console.log("Enter 'done' to continue on the download process");
             console.log("Enter 'cancel' to cancel typing card names");
+            console.log("Enter 'remove x' to remove the card at x");
             console.log("End your card names with ' x2' or ' x3' to have multiple copies downloaded");
             typeCardNames();
         }
@@ -176,11 +177,13 @@ function typeCardNames()
             displayCardNames();
             typeCardNames();
         }
-        else if(input == "cancel")
+        else if(input == "cancel" || input == "stop" || input == "quit" || input == "q")
         {
             console.log("Canceled 'download type'")
             main();
         }
+
+        //Input must be a card name, check to make sure card name is valid
         else
         {
             var cardTest = urlstart + convertCardToUrl(input);
