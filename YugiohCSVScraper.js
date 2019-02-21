@@ -18,7 +18,7 @@ localStorage = new LocalStorage('./scratch');
 var urlstart = 'https://db.ygoprodeck.com/card/?search=';
 
 //Program Start
-//Load 
+//Load
 if(config.folderLocation == "")
 {
     config.folderLocation = localStorage.getItem("folderLoc");
@@ -52,6 +52,13 @@ function main()
                 }
             });
         }
+        //Download cards by name
+        else if(input == "download type")
+        {
+            cardNames = [];
+            console.log("Enter card names one at a time, when finished type 'done'");
+            typeCardNames();
+        }
         //Sets folder location
         else if(input == "set folder")
         {
@@ -73,7 +80,8 @@ function main()
         //displays all commands
         else if(input == "help" || input == 'h')
         {
-            console.log("Enter \'download\' to start download proccess\n" +
+            console.log("Enter 'download' to start download proccess\n" +
+            "Enter 'download type' to download via typing instead of csv" +
             "Enter 'set folder' to set the folder location\n" +
             "Enter 'set csv' to set the csv location\n" +
             "Enter 'display' to show locations\n" +
@@ -105,6 +113,58 @@ function main()
         else
         {
             main();
+        }
+    });
+}
+
+var cardNames = [];
+function typeCardNames()
+{
+    prompt(': ', function (input) {
+        if(input == "done")
+        {
+            if(cardNames.length == 0)
+            {
+                console.log("No cards in list");
+                typeCardNames();
+            }
+            else
+            {
+                prompt('Input folder name:', function (folderName) {
+                    downloadCards(cardNames, folderName); 
+                });
+            }
+        }
+        else if(input == "help" || input == "h")
+        {
+            console.log("Enter 'display' to display current cards")
+            console.log("Enter 'help' or 'h' to display current cards")
+            console.log("Enter 'done' to continue on the download process")
+            console.log("Enter 'cancel' to cancel typing card names")
+            typeCardNames();
+        }
+        else if(input == "display")
+        {
+            var i = 0;
+            for(i = 0; i < cardNames.length; i++)
+            {
+                console.log(cardNames[i]);
+            }
+            if(cardNames.length == 0)
+            {
+                console.log("No cards in list");
+            }
+            typeCardNames();
+        }
+        else if(input == "cancel")
+        {
+            console.log("Canceled 'download type'")
+            main();
+        }
+        else
+        {
+            cardNames.push(input);
+            typeCardNames();
         }
     });
 }
@@ -218,23 +278,46 @@ function downloadCards(cardNames, foldername)
         //Scrape the url
         scraper.imgscrape(cardNames[i], copies, cardAsUrl, (data) => {
             //No copies so only save image once
-            if(data.copies == 0)
+            if(data.img == "https://ygoprodeck.com/wp-content/uploads/2018/01/card_db_twitter_Card2.jpg")
             {
-                saveImageToDisk(data.img, config.folderLocation + foldername + "\\", data.name);
+                console.log(data.name + "    Is not a valid card name");
             }
-
-            //Multiple copies so save image multiple times
             else
             {
-                var cardName = data.name.substring(0, data.name.length-3);
-                var counter = 0;
-                for(counter = 1; counter <= data.copies; counter++)
+                data.name = stripString(data.name);
+                console.log(data.name);
+                if(data.copies == 0)
                 {
-                    saveImageToDisk(data.img, config.folderLocation + foldername + "\\", cardName + "" + counter);
+                    saveImageToDisk(data.img, config.folderLocation + foldername + "\\", data.name);
+                }
+
+                //Multiple copies so save image multiple times
+                else
+                {
+                    var cardName = data.name.substring(0, data.name.length-3);
+                    var counter = 0;
+                    for(counter = 1; counter <= data.copies; counter++)
+                    {
+                        saveImageToDisk(data.img, config.folderLocation + foldername + "\\", cardName + "" + counter);
+                    }
                 }
             }
         });
     }
+}
+
+function stripString(inputString)
+{
+    var j;
+    var substitute = "";
+    for(j = 0; j < inputString.length; j++)
+    {
+        if(inputString.charAt(j).match(/[a-z|A-Z|0-9| ]/i))
+        {
+            substitute += inputString.charAt(j);
+        }
+    }
+    return substitute;
 }
 
 var numberOfDownloads = 0;

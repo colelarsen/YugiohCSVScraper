@@ -18,7 +18,6 @@ exports.imgscrape = (name, copies, url, cb) => {
             name: name,
             copies: copies
         }
-
         cb(image);
     }); 
 }
