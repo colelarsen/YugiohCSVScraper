@@ -21,3 +21,22 @@ exports.imgscrape = (name, copies, url, cb) => {
         cb(image);
     }); 
 }
+
+exports.cardTest = (url, cb) => {
+    request(url, (error, resp, html) => {
+        if(error)
+        {
+            cb({
+                error: error
+            });
+        }
+        
+        let $ = cheerio.load(html);
+        let $url = url;
+        let $img = $('meta[property="og:image:secure_url"]').attr('content');
+        let image = {
+            img: $img,
+        }
+        cb(image);
+    }); 
+}

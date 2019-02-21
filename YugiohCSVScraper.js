@@ -18,17 +18,29 @@ localStorage = new LocalStorage('./scratch');
 var urlstart = 'https://db.ygoprodeck.com/card/?search=';
 
 //Program Start
-//Load
-if(config.folderLocation == "")
+startProgram();
+function startProgram()
 {
-    config.folderLocation = localStorage.getItem("folderLoc");
+    //Load
+    if(config.folderLocation == "")
+    {
+        config.folderLocation = localStorage.getItem("folderLoc");
+        if(config.folderLocation.charAt(config.folderLocation.length-1) != "\\")
+        {
+            config.folderLocation += "\\";
+        }
+    }
+    if(config.csvLocation == "")
+    {
+        config.csvLocation = localStorage.getItem("csvLoc");
+        if(config.csvLocation.charAt(config.csvLocation.length-1) != "\\")
+        {
+            config.csvLocation += "\\";
+        }
+    }
+    console.log("Welcome to YugiohCSVScraper, Type 'help' for help. Thank you!")
+    main();
 }
-if(config.csvLocation == "")
-{
-    config.csvLocation = localStorage.getItem("csvLoc");
-}
-console.log("Welcome to YugiohCSVScraper, Type 'help' for help. Thank you!")
-main();
 
 //Handles User Input
 function main()
@@ -63,6 +75,10 @@ function main()
         else if(input == "set folder")
         {
             prompt('Input folder location (the location of the folder, not inside the folder):', function (folderLoc) {
+                if(folderLoc.charAt(folderLoc.length-1) != "\\")
+                {
+                    folderLoc += "\\";
+                }
                 localStorage.setItem("folderLoc", folderLoc);
                 config.folderLocation = localStorage.getItem("folderLoc");
                 main();
@@ -72,6 +88,10 @@ function main()
         else if(input == "set csv")
         {
             prompt('Input location of csv file:', function (csvLoc) {
+                if(csvLoc.charAt(csvLoc.length-1) != "\\")
+                {
+                        csvLoc += "\\";
+                }
                 localStorage.setItem("csvLoc", csvLoc);
                 config.csvLocation = localStorage.getItem("csvLoc");
                 main();
@@ -137,23 +157,23 @@ function typeCardNames()
         }
         else if(input == "help" || input == "h")
         {
-            console.log("Enter 'display' to display current cards")
-            console.log("Enter 'help' or 'h' to display commands")
-            console.log("Enter 'done' to continue on the download process")
-            console.log("Enter 'cancel' to cancel typing card names")
+            console.log("Enter 'display' to display current cards");
+            console.log("Enter 'help' or 'h' to display commands");
+            console.log("Enter 'done' to continue on the download process");
+            console.log("Enter 'cancel' to cancel typing card names");
+            console.log("End your card names with ' x2' or ' x3' to have multiple copies downloaded");
+            typeCardNames();
+        }
+        else if(input.startsWith("remove "))
+        {
+            var removeNum = input.split(" ")[1];
+            cardNames.splice(removeNum, 1);
+            displayCardNames();
             typeCardNames();
         }
         else if(input == "display")
         {
-            var i = 0;
-            for(i = 0; i < cardNames.length; i++)
-            {
-                console.log(cardNames[i]);
-            }
-            if(cardNames.length == 0)
-            {
-                console.log("No cards in list");
-            }
+            displayCardNames();
             typeCardNames();
         }
         else if(input == "cancel")
@@ -163,10 +183,34 @@ function typeCardNames()
         }
         else
         {
-            cardNames.push(input);
-            typeCardNames();
+            var cardTest = urlstart + convertCardToUrl(input);
+            scraper.cardTest(cardTest, (data) => {
+                if(data.img == "https://ygoprodeck.com/wp-content/uploads/2018/01/card_db_twitter_Card2.jpg")
+                {
+                    console.log(input + "    Is not a valid card name");
+                }
+                else
+                {
+                    cardNames.push(input);
+                }
+                typeCardNames();
+            });
+            
         }
     });
+}
+
+function displayCardNames()
+{
+    var i = 0;
+    for(i = 0; i < cardNames.length; i++)
+    {
+        console.log(i + ":    " + cardNames[i]);
+    }
+    if(cardNames.length == 0)
+    {
+        console.log("No cards in list");
+    }
 }
 
 //Reads the csv file into 'fileData' 
@@ -248,11 +292,18 @@ function convertCardToUrl(cardName)
 //Return n if it exists, else 0
 function getCardCopies(cardName)
 {
-    var copies = 0;
+    var copies = -1;
     var cardNameLength = cardName.length;
     if((cardName.charAt(cardNameLength-2) == 'X' ||cardName.charAt(cardNameLength-2) == 'x') && cardName.charAt(cardNameLength-3) == ' ')
     {
-        copies = cardName.charAt(cardNameLength-1) - 0;
+        try
+        {
+            copies = cardName.charAt(cardNameLength-1) - 0;
+        }
+        catch
+        {
+            copies = -1;
+        }
     }
     return copies;
 }
@@ -283,10 +334,17 @@ function downloadCards(cardNames, foldername)
             }
             else
             {
+                //Create folder if given one does not exist
+                var folderLocal = config.folderLocation + foldername + "\\";
+                if (!fs.existsSync(folderLocal)){
+                    fs.mkdirSync(folderLocal);
+                }
+                
+
                 data.name = stripString(data.name);
                 if(data.copies == 0)
                 {
-                    saveImageToDisk(data.img, config.folderLocation + foldername + "\\", data.name);
+                    saveImageToDisk(data.img, folderLocal, data.name);
                 }
 
                 //Multiple copies so save image multiple times
@@ -296,7 +354,7 @@ function downloadCards(cardNames, foldername)
                     var counter = 0;
                     for(counter = 1; counter <= data.copies; counter++)
                     {
-                        saveImageToDisk(data.img, config.folderLocation + foldername + "\\", cardName + "" + counter);
+                        saveImageToDisk(data.img, folderLocal, cardName + "" + counter);
                     }
                 }
             }
