@@ -193,7 +193,6 @@ function readCSV(inputPath, filename)
                         }
                     }
                 }
-                console.log(csvData);
                 try
                 {
                     prompt('Input folder name:', function (folderName) {
@@ -285,7 +284,6 @@ function downloadCards(cardNames, foldername)
             else
             {
                 data.name = stripString(data.name);
-                console.log(data.name);
                 if(data.copies == 0)
                 {
                     saveImageToDisk(data.img, config.folderLocation + foldername + "\\", data.name);
