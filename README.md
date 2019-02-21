@@ -33,4 +33,9 @@ Enter 'q' or 'quit' or 'exit' to exit the program
 
 7.  (Optional) Open the config.js file with notepad and enter filepaths to csvLocation and folderLocation. Make sure to enter the file locations with double '\\' and end with '\\'
 Example:
->C:\\Users\\colea\\Downloads\\Yugioh\\CSV\\
+```C:\\Users\\colea\\Downloads\\Yugioh\\CSV\\```
+
+### Running
+1.  Open Command Prompt
+2.  Navigate to YugiohCSVScraper folder location 
+3.  Type node YugiohCSVScraper.js (Again press 'Tab' to autocomplete)
