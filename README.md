@@ -40,6 +40,7 @@ Enter 'display' to show locations
 Enter 'q' or 'quit' or 'exit' to exit the program
 ```
 DO NOT type double `\` when  seting folder locations from the program
+You will need to create a folder before downloading to said folder
 
 ### Notes on Command Prompt
 1.  Command Prompt uses ``cd folderName`` to move into a folder and ``cd ..`` to move out of a folder. 
