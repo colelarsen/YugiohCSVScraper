@@ -322,6 +322,10 @@ function downloadCards(cardNames, foldername)
     {
         //Obtain card Info
         var copies = getCardCopies(cardNames[i]);
+        if(copies == -1 || copies == 0)
+        {
+            copies = 1;
+        }
         console.log(copies + "   :   " + cardNames[i]);
         var cardAsUrl = convertCardToUrl(cardNames[i]);
 
@@ -345,7 +349,7 @@ function downloadCards(cardNames, foldername)
                 
 
                 data.name = stripString(data.name);
-                if(data.copies == 0)
+                if(data.copies == 1)
                 {
                     saveImageToDisk(data.img, folderLocal, data.name);
                 }
