@@ -109,7 +109,6 @@ function main()
             "Enter 'h' or 'help' for help while in the program\n" +
             
             "- DO NOT type double '\\' when  seting folder locations from the program\n" +
-            "- You will need to create a folder before downloading to said folder\n" +
             "- Make sure to end all filepaths with a '\\' Example: 'C:\\Users\\colea\\Downloads\\Yugioh\\CSV\\'\n" +
             "- The program will ask you for the csv file name, provide just the file name without the .csv\n" +
             "- The program will ask you for the folder name. It will look in the provided folder location for a folder with the name you enter, it will save the jpgs to the folder name you provide.\n" +
