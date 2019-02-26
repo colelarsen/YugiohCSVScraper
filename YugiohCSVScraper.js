@@ -53,6 +53,10 @@ function topLevelInput()
             prompt('Input csv name:', function (csvName) {
                 try
                 {
+                    if(csvName.endsWith(".csv"))
+                    {
+                        csvName = csvName.substring(0, csvName.length-3);
+                    }
                     //Reads csv data and sends it to download
                     readCSV(config.csvLocation, csvName);
                 }
@@ -155,10 +159,10 @@ function typeCardNames()
         }
         else if(input == "help" || input == "h")
         {
-            console.log("Enter 'display' or 'finished' to display current cards");
+            console.log("Enter 'display' to display current cards");
             console.log("Enter 'help' or 'h' to display commands");
-            console.log("Enter 'done' to continue on the download process");
-            console.log("Enter 'cancel' to cancel typing card names");
+            console.log("Enter 'done' or 'finished' to continue on the download process");
+            console.log("Enter 'cancel' or 'quit' to cancel typing card names");
             console.log("Enter 'remove x' to remove the card at x");
             console.log("End your card names with ' x2' or ' x3' to have multiple copies downloaded");
             typeCardNames();
@@ -172,6 +176,7 @@ function typeCardNames()
         }
         else if(input == "display")
         {
+            console.log(cardNames);
             displayCardNames();
             typeCardNames();
         }
@@ -196,7 +201,6 @@ function typeCardNames()
                 }
                 typeCardNames();
             });
-            
         }
     });
 }
@@ -266,7 +270,6 @@ function prompt(question, callback) {
         stdout = process.stdout;
     stdin.resume();
     stdout.write(question);
-
     stdin.once('data', function (data) {
         callback(data.toString().trim());
     });
