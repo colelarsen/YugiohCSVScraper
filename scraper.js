@@ -142,6 +142,7 @@ module.exports = {
                 if(data.img == "https://ygoprodeck.com/wp-content/uploads/2018/01/card_db_twitter_Card2.jpg")
                 {
                     console.log(data.name + "    Is not a valid card name");
+                    numberOfDownloads--;
                 }
                 else
                 {
